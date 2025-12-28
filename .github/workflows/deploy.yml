@@ -4,6 +4,14 @@ on:
   push:
     branches:
       - main
+    paths:
+      - 'src/**'
+      - 'package.json'
+      - 'pnpm-lock.yaml'
+      - 'wrangler.jsonc'
+      - 'tsconfig.json'
+      - 'worker-configuration.d.ts'
+      - '.github/workflows/**'
 
 jobs:
   deploy:
