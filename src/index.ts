@@ -31,6 +31,21 @@ app.get('/today', async (c) => {
   return c.json(results)
 })
 
+app.get('/tomorrow', async (c) => {
+  // Calculate JST date (UTC+9) + 1 day
+  const now = new Date()
+  const jstTomorrow = new Date(now.getTime() + 9 * 60 * 60 * 1000 + 24 * 60 * 60 * 1000)
+  const dateStr = jstTomorrow.toISOString().split('T')[0]
+
+  // Query D1
+  const { results } = await c.env.TOKYO_DOME_EVENTS_DB
+    .prepare('SELECT * FROM events WHERE date = ?')
+    .bind(dateStr)
+    .all()
+
+  return c.json(results)
+})
+
 app.notFound((c) => {
   return c.json({ error: 'Not Found' }, 404)
 })
