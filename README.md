@@ -1,3 +1,7 @@
+## Tokyo Dome Events API
+
+[![Deployment Status](https://github.com/Taewan-P/tokyo-dome-events-api/actions/workflows/deploy.yml/badge.svg?branch=main)](https://github.com/Taewan-P/tokyo-dome-events-api/actions/workflows/deploy.yml)
+
 ```txt
 pnpm install
 pnpm run dev
@@ -11,11 +15,4 @@ pnpm run deploy
 
 ```txt
 pnpm run cf-typegen
-```
-
-Pass the `CloudflareBindings` as generics when instantiation `Hono`:
-
-```ts
-// src/index.ts
-const app = new Hono<{ Bindings: CloudflareBindings }>()
 ```
