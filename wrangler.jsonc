@@ -13,5 +13,11 @@
   "observability": {
     "enabled": true,
     "head_sampling_rate": 1
-  }
+  },
+  "routes": [
+    {
+      "pattern": "tokyo-dome.chungjungsoo.dev",
+      "custom_domain": true
+    }
+  ]
 }
